@@ -3,26 +3,23 @@
 require_once "config.php";
 
   if(isset($_POST['submit'])) {
-      $nic = $_POST['nic'];
-      $Name = $_POST['firstname'];
-      $Surname = $_POST['lastname'];
-      $birth = $_POST['birth'];
-      $contact = $_POST['contact'];
-      $license = $_POST['licenseno'];
-      $insuranceno = $_POST['insuranceno'];
-      $insurance = $_POST['insurance'];
+      $nic = $_POST['NIC'];
+      $fname = $_POST['fname'];
+      $lname = $_POST['lname'];
+      $dob = $_POST['dob'];
+      $conno = $_POST['conno'];
+      $licno = $_POST['licno'];
+      $insuranceno = $_POST['insuno'];
+      $insurancename = $_POST['insname'];
       $email = $_POST['email'];
       $password = $_POST['password'];
-/*Below hash function currently sets salt at cost 4, this can be increased till value till 22 to increase strength but this will effect stability
-of the pages and server as encoding process requires more processing power. */
-      $options = array("cost" => 4);
-      $hashPassword = password_hash($password, PASSWORD_BCRYPT, $options);
 
-      $sql = "insert into users (nic, firstname,email, password) value('" . $nic . "', '" . $Name . "', '" . $email . "','" . $hashPassword . "')";
 
-      $sql1 = "INSERT INTO driver(nic,firstname,lastname,DateOfBirth,ContactNo,LicenseNo,InsuranceNo,InsuranceName) value('" . $nic . "', '" . $Name . "', '" . $Surname . "', '" . $birth . "','" . $contact . "', '" . $license . "','" . $insuranceno . "','" . $insurance . "')";
+      $sql = "insert into users (nic, fname,email, password) value('$nic', '" . $fname . "', '" . $email . "','" . $password . "')";
+
+      $sql1 = "INSERT INTO driver(NIC,fname,lname,dob,email,conno,insuranceno,insurancename,licenseno) value('$nic', '" . $fname . "', '" . $lname . "', '" . $dob . "', '" . $email . "','" . $conno . "', '" . $insuranceno . "','" . $insurancename . "','" . $licno . "')";
       if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql1)) {
-          header("Location: login");
+          header("Location: login.php");
 
       } else {
           echo '<script>alert("Registration Failed, Try Again later")</script>'
@@ -73,6 +70,8 @@ of the pages and server as encoding process requires more processing power. */
                             <a href="login.php">Login</a><a href="register.php" class="active">Register</a>
                         </div>
                         <form method="post">
+
+
                             <input class="form-control" type="text" name="NIC" placeholder="NIC" required>
                             <input class="form-control" type="text" name="fname" placeholder="First Name" required>
                             <input class="form-control" type="text" name="lname" placeholder="Last Name" required>

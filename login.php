@@ -79,7 +79,7 @@ echo '</script>';
                         <h3>Get more things done with Loggin platform.</h3>
                         <p>Access to the most powerfull tool in the entire design and web industry.</p>
                         <div class="page-links">
-                            <a href="login.html" class="active">Login</a><a href="register.html">Register</a>
+                            <a href="login.php" class="active">Login</a><a href="register.php">Register</a>
                         </div>
                         <form method="post">
                             <input class="form-control" type="text" name="email" placeholder="E-mail Address" required>
