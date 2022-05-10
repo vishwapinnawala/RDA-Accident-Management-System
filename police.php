@@ -1,7 +1,8 @@
 <?php
-require_once "validate.php";
+require_once "policevalidate.php";
 require_once "config.php";
 ?>
+
 
 
 
@@ -13,7 +14,7 @@ require_once "config.php";
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>User Dashboard</title>
+        <title>Police Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="Admin Dashboard" name="description" />
         <meta content="ThemeDesign" name="author" />
@@ -49,8 +50,8 @@ require_once "config.php";
                         <a href="index.html" class="logo-sm"><img src="assets/images/RDA-Logo.png" height="36"></a>
                     </div>
                 </div>
-                 <!-- Button mobile view to collapse sidebar menu -->
-                 <div class="navbar navbar-default" role="navigation">
+                               <!-- Button mobile view to collapse sidebar menu -->
+                               <div class="navbar navbar-default" role="navigation">
                     <div class="container">
                         <div class="">
                             <div class="pull-left">
@@ -76,9 +77,9 @@ require_once "config.php";
                                     <a href="#" id="btn-fullscreen" class="waves-effect waves-light"><i class="fa fa-crosshairs"></i></a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true"><img src="assets/images/users/2.jpg" alt="user-img" class="img-circle"> </a>
+                                    <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true"><img src="assets/images/users/3.jpg" alt="user-img" class="img-circle"> </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="profile.php"> Profile</a></li>
+                                        <li><a href="javascript:void(0)"> Profile</a></li>
                                         <li class="divider"></li>
                                         <li><a href="logout.php"> Logout</a></li>
                                     </ul>
@@ -100,7 +101,7 @@ require_once "config.php";
                         <div class="text-center">
 
 
- <img src="assets/images/users/2.jpg"   alt="" class="img-circle">
+ <img src="assets/images/users/3.jpg"   alt="" class="img-circle">
 
 
 
@@ -116,12 +117,9 @@ require_once "config.php";
                         </div>
                         <div class="user-info">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><?php echo $name ." " ; echo $name2 ?></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="profile.php"> Profile</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="javascript:void(0)"> Logout</a></li>
-                                </ul>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><?php echo $name ." " ;  ?></a>
+                                
+                                    
                             </div>
 
                             <p class="text-muted m-0"><i class="fa fa-dot-circle-o text-success"></i> Online</p>
@@ -130,26 +128,19 @@ require_once "config.php";
                     <!--- Divider -->
                     <div id="sidebar-menu">
                         <ul>
-                            
-
                             <li>
-                                <a href="report2.php" class="waves-effect"><i class="ti-ruler-pencil"></i><span> Report <span class="badge badge-primary pull-right"></span></span></a>
+                                <a href="police.php" class="waves-effect"><i class="ti-home"></i><span> User Complains  </span></a>
                             </li>
  <li>
-                                <a href="report5.php" class="waves-effect"><i class="ti-ruler-pencil"></i><span>Approved Report <span class="badge badge-primary pull-right"></span></span></a>
-                            </li>
-<li>
-                                <a href="report3.php" class="waves-effect"><i class="ti-ruler-pencil"></i><span> Complain <span class="badge badge-primary pull-right"></span></span></a>
-                            </li>
-<li>
-                                <a href="report4.php" class="waves-effect"><i class="ti-ruler-pencil"></i><span>Approved Complain <span class="badge badge-primary pull-right"></span></span></a>
+                                <a href="police2.php" class="waves-effect"><i class="ti-home"></i><span>Approved Complains  </span></a>
                             </li>
 
+                           
+                           
 
-                            
+                           
 
                           
-
                             <!--<li class="has_sub">-->
                                 <!--<a href="javascript:void(0);" class="waves-effect"><i class="ti-share"></i><span>Multi Menu </span><span class="pull-right"><i class="mdi mdi-plus"></i></span></a>-->
                                 <!--<ul>-->
@@ -183,7 +174,7 @@ require_once "config.php";
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="page-header-title">
-                                    <h4 class="pull-left page-title">Complains</h4>
+                                    <h4 class="pull-left page-title">Dashboard</h4>
                                     <ol class="breadcrumb pull-right">
                                     <li><a href="index.html">Home</a></li>
                                         <li class="active">Dashboard</li>
@@ -229,7 +220,7 @@ if (mysqli_num_rows($result) > 0)
                                     <div class="panel-body">
                                         <h3 class=""><b><?php
 //////////////////////////////////////////////////////////////////
-$sql = "SELECT count(reportid) as complaincount FROM approvedreports where nic='$nic'";
+$sql = "SELECT count(reportid) as complaincount FROM approvedreports";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) 
@@ -293,196 +284,65 @@ if (mysqli_num_rows($result) > 0)
                             </div>
                         </div>
 
+                      
+
+
                         <div class="row">
-                          
-                            <div class="col-sm-4" style="width:100%;">
-                                <div class="panel panel-primary">
-                                    <div class="panel-body">
-                                        <h4 class="m-t-0">Make a Report</h4>
-    
-
-                                        
-                                        <form method="post" action="addreport.php" enctype="multipart/form-data">
-                            
-                            <input class="form-control" type="text" name="severity" placeholder="Severity" required><br>
-			    <input class="form-control" type="text" name="typee" placeholder="Type" required><br>
-			    <textarea class="form-control"  name="description" rows="4" placeholder="Description" cols="50" required></textarea><br>
-
-
-
-
-
-
-
-
-
-
-
-<div id="googleMap" style="width:100%;height:400px;"></div>
-
-<script>
-let map, infoWindow;
-
-function initmap() {
-map= new google.maps.Map(document.getElementById("googleMap"),{  center:new google.maps.LatLng(6.9271, 79.8612),
-  zoom:10,
-});
-
-infoWindow = new google.maps.InfoWindow();
-const locationButton = document.createElement("button");
-  locationButton.textContent = "Pan to Current Location";
-  locationButton.classList.add("custom-map-control-button");
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-  locationButton.addEventListener("click", () => {
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-
-          infoWindow.setPosition(pos);
-          infoWindow.setContent("Location found.");
-
-          infoWindow.open(map);
-          map.setCenter(pos);
-
-var userlat=pos.lat;
-var userlong=pos.lng;
-var divele1 = document.getElementById("ulng").value=userlong;
-var divele2 = document.getElementById("ulat").value=userlat ;
-
-
-console.log(userlat);
-console.log(userlong);
-
-        },
-        () => {
-          handleLocationError(true, infoWindow, map.getCenter());
-        }
-      );
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
-  });
-}
-
-
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(
-    browserHasGeolocation
-      ? "Error: The Geolocation service failed."
-      : "Error: Your browser doesn't support geolocation."
-  );
-  infoWindow.open(map);
-}
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiA7r54zgb0cKWZc1yMoEWt9gcuLcHkuE&callback=initmap"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-			    
-		<input class="form-control" type="text" name="longtitude" id="ulng" placeholder="Longtitude" required><br>
-			    <input class="form-control" type="text" name="latitude" id="ulat" placeholder="Latitude" required><br>	    
-
-                            <label class="form-label" for="customFile">Upload Images</label>
-			    <input type="file" name="fileToUpload1" id="fileToUpload1" class="form-control" id="customFile" required />
-			    <input type="file" name="fileToUpload2" id="fileToUpload2" class="form-control" id="customFile" required />
-
-                            <div class="form-button"><br>
-                                <button type="submit" name="submitreport" class="btn btn-primary">Confirm</button>
-                            </div>
-                        </form>
-
-
-
-
-                                    </div>
-                                </div>
-
-
-                                    </div>
-                                </div>
-
-
-
-                        <div class="row" >
                             <div class="col-md-12">
-
                                 <div class="panel panel-primary">
-
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">Complains You Made</h3>
+                                        <h3 class="panel-title">Customers Tables</h3>
                                     </div>
                                     <div class="panel-body">
                                         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
-
-
-                                                    <th>Report ID</th>
-                                                    <th>Severity</th>
-                                                    <th>Type</th>
-                                                    <th>Description</th>
-						    <th>Date & Time</th>
-                                                    <th>Longtitude</th>
-                                                    <th>Latitude</th><br>
+							<th>Accept</th>
+                                                    <th>Complain ID</th>
+                                                    <th>NIC</th>
+                                                    <th>Subject</th>
+                                                    <th>Complain</th>
+                                                    <th>Image</th>
                                                     
-<th>Image 1</th>
-<th>Image 2</th>
                                                     
                                                 </tr>
                                             </thead>
                                             <tbody>
 
 <?php
-$sql = "SELECT * FROM report where nic='$nic'";
+$sql = "SELECT * FROM complain";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
 
   while($row = mysqli_fetch_assoc($result)) {
-  //$row["reportid"];
-   // $row["subject"];
-   // $row["complain"];
-$imgfilename=$row["imagename"];
-$imgfilename2=$row["imagename2"];
-								
+    $imgfilename=$row["imagefilename"];
+    $usernic=$row["nic"];
+    $complainsid=$row["complainid"];
 
 					echo "<tr>";
-                                               echo "<td>" .$row["reportid"].      "</td>";
-                                               echo "<td>" .$row["severity"].        "</td>";
-                                               echo "<td>" .$row["type"].        "</td>";
-					       echo "<td>" .$row["description"].      "</td>";
-                                               echo "<td>" .$row["date_time"].        "</td>";
-                                               echo "<td>" .$row["longtitude"].        "</td>";
- 					       echo "<td>" .$row["latitude"].      "</td>";
-                                               //echo "<td>" .$row["imagename"].        "</td>";
-                                               //echo "<td>" .$row["imagename2"].        "</td>";
-                                               
-echo "<td>";
-echo '<img width="100%" height="auto" src="uploads/'.$nic.'/reports/'.$imgfilename.'">';
-echo "</td>";  
 
 echo "<td>";
-echo '<img width="100%" height="auto" src="uploads/'.$nic.'/reports/'.$imgfilename2.'">';
-echo "</td>";                                                  
+echo "<form method='post'>";
+echo "<input type='hidden' name='complainid' value='.$complainsid.'>";
+echo "<input type='submit' name='acceptcomplain' value='Accept'>";
+echo "</form>";
+echo "</td>";
+
+                                               echo "<td>" .$row["complainid"].      "</td>";
+                                              echo "<td>" .$row["nic"].        "</td>";
+                                               echo "<td>" .$row["subject"].        "</td>";
+                                               echo "<td>" .$row["complain"].        "</td>";
+                                                
+                                               //echo "<td>" .$row["imagefilename"].   "</td>";
+echo "<td>";
+echo '<img width="100%" height="auto" src="uploads/'.$usernic.'/complains/'.$imgfilename.'">';
+echo "</td>";   
+     
+
+
+
+                                           
                                            echo "</tr>";
 
 
@@ -492,24 +352,37 @@ echo "</td>";
 }
 
 //mysqli_close($conn);
-?>                                              
-                                           
+?>
+
+<?php
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if(isset($_POST['acceptcomplain']))
+{
+$comid=$_POST['complainid'];
+$sql="CALL movetoapproved('$comid')";
+
+$result = mysqli_query($conn, $sql);
+//$row = mysql_fetch_assoc($result);
+
+
+
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+?>
+                                            
                                             </tbody>
                                         </table>
 
                                     </div>
-
                                 </div>
-
-                           
-                   
-
+                            </div>
 
                         </div> <!-- End Row -->
 
+
                     </div> <!-- container -->
 
-                </div> <!-- content -->	
+                </div> <!-- content -->
 
                 <footer class="footer">
                 2022 © Road Development Authority

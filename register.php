@@ -13,9 +13,10 @@ require_once "config.php";
       $insurancename = $_POST['insname'];
       $email = $_POST['email'];
       $password = $_POST['password'];
+      $type="user";
 
 
-      $sql = "insert into users (nic, fname,email, password) value('$nic', '" . $fname . "', '" . $email . "','" . $password . "')";
+      $sql = "insert into users (nic, fname,type,email, password) value('$nic','$type', '" . $fname . "', '" . $email . "','" . $password . "')";
 
       $sql1 = "INSERT INTO driver(NIC,fname,lname,dob,email,conno,insuranceno,insurancename,licenseno) value('$nic', '" . $fname . "', '" . $lname . "', '" . $dob . "', '" . $email . "','" . $conno . "', '" . $insuranceno . "','" . $insurancename . "','" . $licno . "')";
       if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql1)) {
@@ -39,7 +40,9 @@ require_once "config.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iofrm</title>
+    <title>Register Page - RDA</title>
+    
+    <link rel="shortcut icon" href="assets/images/RDA-Logo.png">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
     <link rel="stylesheet" type="text/css" href="css/iofrm-style.css">
@@ -49,9 +52,7 @@ require_once "config.php";
     <div class="form-body">
         <div class="website-logo">
             <a href="index.html">
-                <div class="logo">
-                    <img class="logo-size" src="images/logo-light.svg" alt="">
-                </div>
+                    <img  src="assets/images/2.png" alt="">
             </a>
         </div>
         <div class="row">
@@ -64,8 +65,8 @@ require_once "config.php";
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <h3>Get more things done with Loggin platform.</h3>
-                        <p>Access to the most powerfull tool in the entire design and web industry.</p>
+                        <h3>Let's Manage & Report Accident</h3>
+                        <p> <b>ROAD DEVELOPMENT AUTHORITY</b></p>
                         <div class="page-links">
                             <a href="login.php">Login</a><a href="register.php" class="active">Register</a>
                         </div>
@@ -78,7 +79,15 @@ require_once "config.php";
                             <input class="form-control" type="date" name="dob" placeholder="Date of Birth" required>
                             <input class="form-control" type="email" name="email" placeholder="Email" required>
                             <input class="form-control" type="text" name="conno" placeholder="Contact No" required>
-                            <input class="form-control" type="text" name="insname" placeholder="Insurance Name" required>
+                           
+
+<select class="form-control" name="insname" required>
+    <option>Sri Lanka Insurance</option>
+    <option>AIA Insurance Lanka</option>
+    <option>Allianz Insurance Lanka</option>
+    <option>Continental Insurance Lanka</option>
+  </select><br>
+
                             <input class="form-control" type="text" name="insuno" placeholder="Insurance No" required>
                             <input class="form-control" type="text" name="licno" placeholder="License No" required>
                             <input class="form-control" type="password" name="password" placeholder="Password" required>

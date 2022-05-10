@@ -1,19 +1,12 @@
 <?php
-require_once "validate.php";
+require_once "adminvalidate.php";
 require_once "config.php";
 ?>
-
-
-
-
-   
-
-
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <title>User Dashboard</title>
+    <meta charset="utf-8" />
+        <title>Admin Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="Admin Dashboard" name="description" />
         <meta content="ThemeDesign" name="author" />
@@ -30,7 +23,6 @@ require_once "config.php";
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-
 
     </head>
 
@@ -49,8 +41,8 @@ require_once "config.php";
                         <a href="index.html" class="logo-sm"><img src="assets/images/RDA-Logo.png" height="36"></a>
                     </div>
                 </div>
-                 <!-- Button mobile view to collapse sidebar menu -->
-                 <div class="navbar navbar-default" role="navigation">
+                                <!-- Button mobile view to collapse sidebar menu -->
+                                <div class="navbar navbar-default" role="navigation">
                     <div class="container">
                         <div class="">
                             <div class="pull-left">
@@ -76,9 +68,9 @@ require_once "config.php";
                                     <a href="#" id="btn-fullscreen" class="waves-effect waves-light"><i class="fa fa-crosshairs"></i></a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true"><img src="assets/images/users/2.jpg" alt="user-img" class="img-circle"> </a>
+                                    <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true"><img src="assets/images/users/1.jpg" alt="user-img" class="img-circle"> </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="profile.php"> Profile</a></li>
+                                        <li><a href="javascript:void(0)"> Profile</a></li>
                                         <li class="divider"></li>
                                         <li><a href="logout.php"> Logout</a></li>
                                     </ul>
@@ -98,27 +90,13 @@ require_once "config.php";
                 <div class="sidebar-inner slimscrollleft">
                     <div class="user-details">
                         <div class="text-center">
-
-
- <img src="assets/images/users/2.jpg"   alt="" class="img-circle">
-
-
-
-
-
-
-
-
-
-
-
-
+                            <img src="assets/images/users/1.jpg" alt="" class="img-circle">
                         </div>
                         <div class="user-info">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><?php echo $name ." " ; echo $name2 ?></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">ADMIN</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="profile.php"> Profile</a></li>
+                                    <li><a href="javascript:void(0)"> Profile</a></li>
                                     <li class="divider"></li>
                                     <li><a href="javascript:void(0)"> Logout</a></li>
                                 </ul>
@@ -127,28 +105,38 @@ require_once "config.php";
                             <p class="text-muted m-0"><i class="fa fa-dot-circle-o text-success"></i> Online</p>
                         </div>
                     </div>
-                    <!--- Divider -->
-                    <div id="sidebar-menu">
+                                       <!--- Divider -->
+                                       <div id="sidebar-menu">
                         <ul>
-                           
-
-                            <li>
-                                <a href="report2.php" class="waves-effect"><i class="ti-ruler-pencil"></i><span> Report <span class="badge badge-primary pull-right"></span></span></a>
-                            </li>
-<li>
-                                <a href="report5.php" class="waves-effect"><i class="ti-ruler-pencil"></i><span>Approved Report <span class="badge badge-primary pull-right"></span></span></a>
-                            </li>
-<li>
-                                <a href="report3.php" class="waves-effect"><i class="ti-ruler-pencil"></i><span> Complain <span class="badge badge-primary pull-right"></span></span></a>
-                            </li>
-<li>
-                                <a href="report4.php" class="waves-effect"><i class="ti-ruler-pencil"></i><span>Approved Complain <span class="badge badge-primary pull-right"></span></span></a>
-                            </li>
-
-
                             
+                            <li>
+                                <a href="admin2.php" class="waves-effect"><i class="ti-ruler-pencil"></i><span> Create Accounts <span class="badge badge-primary pull-right"></span></span></a>
+                            </li>
+<li>
+                                <a href="admin3.php" class="waves-effect"><i class="ti-ruler-pencil"></i><span> View Complaints <span class="badge badge-primary pull-right"></span></span></a>
+                            </li>
+                         
+                            <li>
+                                <a href="admin4.php" class="waves-effect"><i class="ti-calendar"></i><span> View Reports <span class="badge badge-primary pull-right"></span></span></a>
+                            </li>
+<li>
+                                <a href="admin5.php" class="waves-effect"><i class="ti-ruler-pencil"></i><span> Approved Complaints <span class="badge badge-primary pull-right"></span></span></a>
+                            </li>
+                         
+                            <li>
+                                <a href="admin6.php" class="waves-effect"><i class="ti-calendar"></i><span> Approved Reports <span class="badge badge-primary pull-right"></span></span></a>
+                            </li>
+  <li>
+                                <a href="admin7.php" class="waves-effect"><i class="ti-calendar"></i><span> User Details <span class="badge badge-primary pull-right"></span></span></a>
+                            </li>
+  <li>
+                                <a href="admin8.php" class="waves-effect"><i class="ti-calendar"></i><span> Insurance Agent Details <span class="badge badge-primary pull-right"></span></span></a>
+                            </li>
+<li>
+  <a href="admin9.php" class="waves-effect"><i class="ti-calendar"></i><span> Police Officer Details <span class="badge badge-primary pull-right"></span></span></a>
+                            </li>
 
-                          
+                        
 
                             <!--<li class="has_sub">-->
                                 <!--<a href="javascript:void(0);" class="waves-effect"><i class="ti-share"></i><span>Multi Menu </span><span class="pull-right"><i class="mdi mdi-plus"></i></span></a>-->
@@ -183,7 +171,7 @@ require_once "config.php";
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="page-header-title">
-                                    <h4 class="pull-left page-title">Complains</h4>
+                                    <h4 class="pull-left page-title">Dashboard</h4>
                                     <ol class="breadcrumb pull-right">
                                     <li><a href="index.html">Home</a></li>
                                         <li class="active">Dashboard</li>
@@ -193,180 +181,85 @@ require_once "config.php";
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="panel panel-primary text-center">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">Report Accident</h4>
-                                    </div>
-                                    <div class="panel-body">
-                                        <h3 class=""><b><?php
-//////////////////////////////////////////////////////////////////
-$sql = "SELECT count(reportid) as complaincount FROM report ";
-$result = mysqli_query($conn, $sql);
+                       
 
-if (mysqli_num_rows($result) > 0) 
-{
-  while($row = mysqli_fetch_assoc($result)) 
-  {
-    echo $row["complaincount"];
-  }
-} 
-
-//mysqli_close($conn);
-/////////////////////////////////////////////////////////////////////
-?> </b></h3>
-                                        <p class="text-muted"><b>Updated Now</b><br> Road Development Authority</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="panel panel-primary text-center">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">Approved Reports</h4>
-                                    </div>
-                                    <div class="panel-body">
-                                        <h3 class=""><b><?php
-//////////////////////////////////////////////////////////////////
-$sql = "SELECT count(reportid) as complaincount FROM approvedreports where nic='$nic'";
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) 
-{
-  while($row = mysqli_fetch_assoc($result)) 
-  {
-    echo $row["complaincount"];
-  }
-} 
-
-//mysqli_close($conn);
-/////////////////////////////////////////////////////////////////////
-?></b></h3>
-                             <p class="text-muted"><b>Updated Now</b><br> Road Development Authority</p> 
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="panel panel-primary text-center">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">Filed Complains</h4>
-                                    </div>
-                                    <div class="panel-body">
-                                        <h3 class=""><b>
-<?php
-//////////////////////////////////////////////////////////////////
-$sql = "SELECT count(complainid) as complaincount FROM complain";
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) 
-{
-  while($row = mysqli_fetch_assoc($result)) 
-  {
-    echo $row["complaincount"];
-  }
-} 
-
-//mysqli_close($conn);
-/////////////////////////////////////////////////////////////////////
-?>
-
-
-
-</b></h3>
-<p class="text-muted"><b>Updated Now</b><br> Road Development Authority</p>                                    
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="panel panel-primary text-center">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">Get Support</h4>
-                                    </div>
-                                    <div class="panel-body">
-                                    <h3 class=""><b><a href="index.html#contactus"><button class="btn btn-primary">Support</button></a></b></h3>
-                                        <p class="text-muted"><b>Contact Now</b><br> Road Development Authority</p> 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                          
-                            <div class="col-sm-4" style="width:100%;">
-                                <div class="panel panel-primary">
-                                    <div class="panel-body">
-                                        <h4 class="m-t-0">Make a Complain</h4>
-                                        
-                                        <form method="post" action="addcomplain.php" enctype="multipart/form-data">
-                            
-                            <input class="form-control" type="text" name="subject" placeholder="Subject" required><br>
-			    <textarea class="form-control"  name="complain" rows="4" placeholder="Complain" cols="50" required></textarea><br>
-			    
-                            <label class="form-label" for="customFile">Upload Images</label>
-			    <input type="file" name="fileToUpload" id="fileToUpload" class="form-control" id="customFile" required />
-
-                            <div class="form-button"><br>
-                                <button type="submit" name="submit" class="btn btn-primary">Confirm</button>
-                            </div>
-                        </form>
-
-
-
-
-                                    </div>
-                                </div>
-
-
-                                    </div>
-                                </div>
-
-
-
-                                <div class="row " >
+                      <div class="row">
                             <div class="col-md-12">
-
                                 <div class="panel panel-primary">
-
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">Complains You Made</h3>
+                                        <h3 class="panel-title">Customers Tables</h3>
                                     </div>
                                     <div class="panel-body">
                                         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
-                                            <thead>
+                                           
+
+
+
+
+
+
+
+
+
+
+ <thead>
                                                 <tr>
-                                                    <th>Complain ID</th>
-                                                    <th>Subject</th>
-                                                    <th>Complain</th>
-                                                    <th>Image</th>
+
+
+                                                    <th>Report ID</th>
+
+<th>NIC</th>
+                                                    <th>Severity</th>
+                                                   
+                                                    <th>Description</th>
+						    <th>Date & Time</th>
+                                                    <th>Longtitude</th>
+                                                    <th>Latitude</th><br>
+                                                    
+<th>Image 1</th>
+<th>Image 2</th>
                                                     
                                                 </tr>
                                             </thead>
                                             <tbody>
 
 <?php
-$sql = "SELECT * FROM complain where nic='$nic'";
+$sql = "SELECT * FROM approvedreports ";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
 
   while($row = mysqli_fetch_assoc($result)) {
-  //$row["complainid"];
-   // $row["subject"];
-   // $row["complain"];
-    $imgfilename=$row["imagefilename"];
+  //$row["reportid"];
+   $userrnic=$row["nic"];
+   $reportidd=$row["reportid"];
+$imgfilename=$row["imagename"];
+$imgfilename2=$row["imagename2"];
+								
 
 					echo "<tr>";
-                                               echo "<td>" .$row["complainid"].      "</td>";
-                                               echo "<td>" .$row["subject"].        "</td>";
-                                               echo "<td>" .$row["complain"].        "</td>";
-                                               //echo "<td>" .$row["imagefilename"].   "</td>";
+                                               echo "<td>" .$row["reportid"].      "</td>";
+echo "<td>" .$row["nic"].      "</td>";
+
+                                               echo "<td>" .$row["severity"].        "</td>";
+                                               //echo "<td>" .$row["type"].        "</td>";
+					       echo "<td>" .$row["description"].      "</td>";
+                                               echo "<td>" .$row["date_time"].        "</td>";
+                                               echo "<td>" .$row["longtitude"].        "</td>";
+ 					       echo "<td>" .$row["latitude"].      "</td>";
+                                               //echo "<td>" .$row["imagename"].        "</td>";
+                                               //echo "<td>" .$row["imagename2"].        "</td>";
+
 echo "<td>";
-echo '<img width="100%" height="auto" src="uploads/'.$nic.'/complains/'.$imgfilename.'">';
-echo "</td>";                                                   
+echo '<img width="100%" height="auto" src="uploads/'.$userrnic.'/reports/'.$imgfilename.'">';
+echo "</td>";  
+
+echo "<td>";
+echo '<img width="80%" height="auto" src="uploads/'.$userrnic.'/reports/'.$imgfilename2.'">';
+echo "</td>";                                                  
                                            echo "</tr>";
+
+
 
 
   }
@@ -375,23 +268,45 @@ echo "</td>";
 }
 
 //mysqli_close($conn);
+if(isset($_POST['acceptreport']))
+{
+$repid=$_POST['reportid'];
+$sql="CALL movetoapprovedreport('$repid')";
+
+$result = mysqli_query($conn, $sql);
+//$row = mysql_fetch_assoc($result);
+
+
+
+}
 ?>                                              
                                            
                                             </tbody>
+
+
+
+
+
+
+
+
+
+
+
+
                                         </table>
 
                                     </div>
-
                                 </div>
-                           
-                   
+                            </div>
 
 
                         </div> <!-- End Row -->
 
+
                     </div> <!-- container -->
 
-                </div> <!-- content -->	
+                </div> <!-- content -->
 
                 <footer class="footer">
                 2022 © Road Development Authority
@@ -428,23 +343,6 @@ echo "</td>";
         <script src="assets/pages/dashborad.js"></script>
 
         <script src="assets/js/app.js"></script>
-
-
-
-
-  <!-- jQuery -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-    <script>
-    $(".Click-here").on('click', function() {
-      $(".custom-model-main").addClass('model-open');
-    }); 
-    $(".close-btn, .bg-overlay").click(function(){
-      $(".custom-model-main").removeClass('model-open');
-    });
-    </script>
-
-
-    <!-- Analytics -->
 
     </body>
 </html>

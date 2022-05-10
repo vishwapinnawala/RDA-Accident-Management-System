@@ -13,14 +13,29 @@ if(isset($_POST['submit'])){
 
 	if($numRows  == 1){
 		$row = mysqli_fetch_assoc($rs);
-		//if(password_verify($password,$row['password'])){
+		$usertype=$row['type'];
                 if($password==$row['password']){
             session_start();
             $_SESSION["username"] = $email;
             $_SESSION["email"] = $email;
             $_SESSION['start'] = time();
+            $_SESSION['usertype']=$usertype;
             $_SESSION['expire'] = $_SESSION['start'] + (720 * 60);  // 12 hour session window
-         header("Location: report.php");
+if($row['type']=="Admin")
+{
+header("Location: admin2.php");
+}
+elseif($row['type']=="police")
+{
+header("Location: police.php");
+}
+elseif($row['type']=="insu")
+{
+header("Location: insurance.php");
+}
+else
+{
+         header("Location: report2.php");}
 		}
 		else{
     echo '<script>alert("Wrong Password")</script>';
@@ -51,7 +66,8 @@ echo '</script>';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iofrm</title>
+    <title>Login Page - RDA</title>
+    <link rel="shortcut icon" href="assets/images/RDA-Logo.png">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
     <link rel="stylesheet" type="text/css" href="css/iofrm-style.css">
@@ -61,9 +77,7 @@ echo '</script>';
     <div class="form-body">
         <div class="website-logo">
             <a href="index.html">
-                <div class="logo">
-                    <img class="logo-size" src="images/logo-light.svg" alt="">
-                </div>
+            <img  src="assets/images/2.png" alt="">
             </a>
         </div>
         <div class="row">
@@ -76,8 +90,8 @@ echo '</script>';
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <h3>Get more things done with Loggin platform.</h3>
-                        <p>Access to the most powerfull tool in the entire design and web industry.</p>
+                        <h3>Let's Drive Safe Avoid Accidents and Problems</h3>
+                        <p>Access to the report or complain your problems about accidents</p>
                         <div class="page-links">
                             <a href="login.php" class="active">Login</a><a href="register.php">Register</a>
                         </div>

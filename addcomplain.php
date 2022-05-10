@@ -2,6 +2,7 @@
 require_once "validate.php";
 require_once "config.php";
 
+if (isset($_POST['submit'])) {
 
 $imagedirectory='uploads/'.$nic.'/complains/'; 
 
@@ -59,11 +60,8 @@ if ($uploadOk == 0) {
     echo "Sorry, there was an error uploading your file.";
   }
 }
-?>
 
 
-
-<?php
 $subject=$_POST['subject'];
 $complain=$_POST['complain'];
 $filename=htmlspecialchars( basename( $_FILES["fileToUpload"]["name"]));
@@ -81,5 +79,6 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 
 header("Location: report3.php");
-
+}
+else{header("Location: report3.php");}
 ?>
